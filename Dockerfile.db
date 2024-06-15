@@ -1,0 +1,17 @@
+# Use the official PostgreSQL image as a parent image
+FROM postgres:15
+
+# Run the required commands to install pgvector
+RUN apt-get update && apt-get install -y gnupg2 wget lsb-release \
+    && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+    && sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
+    && apt-get update \
+    && apt-get install -y postgresql-15-pgvector \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy the initialization script to the container
+COPY ./init-db.sh /docker-entrypoint-initdb.d/init-db.sh
+
+# Make the initialization script executable
+RUN chmod +x /docker-entrypoint-initdb.d/init-db.sh

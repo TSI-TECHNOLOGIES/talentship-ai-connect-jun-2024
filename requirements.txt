@@ -1,0 +1,9 @@
+anthropic
+llama-index
+llama-index-llms-anthropic
+llama-index-vector-stores-postgres
+llama-parse
+google-cloud-documentai
+google-cloud-storage
+PyPDF2
+protobuf
