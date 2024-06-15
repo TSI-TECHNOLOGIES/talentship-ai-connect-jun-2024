@@ -24,7 +24,7 @@ A step by step series of examples that tell you how to get a development environ
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/project.git
+   git clone https://github.com/TSI-TECHNOLOGIES/talentship-ai-connect-jun-2024.git
 
 2. Update the configuration values in the .env file in root directory
 
